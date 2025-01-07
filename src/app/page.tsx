@@ -1,7 +1,16 @@
+import Link from 'next/link'
+
 const Home = () => {
 	return (
-		<div className="page">
+		<div className="page align-center justify-center column gap-2">
 			<h1>nextmax</h1>
+			<div className="d-flex gap-1">
+				<Link
+					href="/components"
+					className="button-link">
+					components
+				</Link>
+			</div>
 		</div>
 	)
 }
