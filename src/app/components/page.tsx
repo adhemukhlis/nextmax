@@ -6,8 +6,8 @@ const Page = () => {
 			<div className="d-flex align-center gap-1">
 				<Link
 					href="/"
-					className="button-link">
-					←
+					className="button-link flip">
+					➜
 				</Link>
 				<h1>components</h1>
 			</div>

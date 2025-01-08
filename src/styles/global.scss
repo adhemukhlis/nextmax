@@ -16,6 +16,13 @@ body {
 	font-family: var(--font-family);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	// experiment: may hos no effect
+	text-rendering: optimizeLegibility;
+	font-kerning: normal;
+	font-variant-ligatures: common-ligatures;
+	// experiment: may hos no effect
+
 	display: flex;
 	background-color: #fafafa;
 }
@@ -82,7 +89,7 @@ $breakpoints: (
 	cursor: pointer;
 	color: rgba($color: #000000, $alpha: 1);
 	padding: 0.4rem;
-	line-height: 1;
+	line-height: 1.1;
 	transition: background-color 0.4s;
 	border-radius: 0.4rem;
 	&:hover {
@@ -142,4 +149,22 @@ table {
 
 .scroll-x {
 	overflow-x: auto;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.text-lg {
+	font-size: 4rem;
+	font-weight: 800;
+}
+
+.text-md {
+	font-size: 2rem;
+	font-weight: 800;
+}
+
+.flip {
+	transform: rotate(180deg);
 }
