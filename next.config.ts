@@ -1,6 +1,18 @@
 import type { NextConfig } from 'next'
+import nextJsObfuscator from 'nextjs-obfuscator'
 
-const nextConfig: NextConfig = {
+const withNextJsObfuscator = nextJsObfuscator(
+	{
+		disableConsoleOutput: false,
+		debugProtection: true,
+		debugProtectionInterval: 4000,
+		ignoreImports: true,
+		selfDefending: true
+	},
+	{ enabled: true, log: true }
+)
+
+const nextConfig: NextConfig = withNextJsObfuscator({
 	compiler: {
 		removeConsole: {
 			exclude: ['error', 'warn', 'info']
@@ -18,6 +30,6 @@ const nextConfig: NextConfig = {
 		'/': ['./src/**/*']
 	},
 	trailingSlash: false
-}
+})
 
 export default nextConfig
