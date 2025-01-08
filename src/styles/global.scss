@@ -13,11 +13,11 @@ body {
 }
 
 body {
-	font-family: var(--font-space-mono);
+	font-family: var(--font-family);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	display: flex;
-	height: 100dvh;
+	background-color: #fafafa;
 }
 
 $breakpoints: (
@@ -138,4 +138,8 @@ table {
 
 .column {
 	flex-direction: column;
+}
+
+.scroll-x {
+	overflow-x: auto;
 }
