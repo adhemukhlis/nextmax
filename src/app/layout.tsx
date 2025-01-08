@@ -1,13 +1,13 @@
 import type { Metadata, Viewport } from 'next'
-import { Space_Mono } from 'next/font/google'
+import { Rubik } from 'next/font/google'
 import '@/styles/global.scss'
 
-const nextFont = Space_Mono({
+const nextFont = Rubik({
 	style: ['normal', 'italic'],
-	weight: ['400', '700'],
+	weight: ['300', '400', '500', '600', '700', '800', '900'],
 	subsets: ['latin'],
 	display: 'swap',
-	variable: '--font-space-mono',
+	variable: '--font-family',
 	adjustFontFallback: false
 })
 
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-	themeColor: '#333333'
+	themeColor: '#FAFAFA'
 }
 
 const RootLayout = ({

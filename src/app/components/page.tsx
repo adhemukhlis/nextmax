@@ -9,7 +9,7 @@ const Page = () => {
 					className="button-link">
 					←
 				</Link>
-				<h1 style={{ lineHeight: 1.1, margin: 0 }}>components</h1>
+				<h1>components</h1>
 			</div>
 			<div className="d-flex gap-1">
 				<Link

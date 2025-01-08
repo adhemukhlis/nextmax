@@ -32,7 +32,7 @@ const columns: ColumnType[] = [
 	}
 ]
 
-const dataSource: DataSourceType[] = Array.from(Array(10000).keys()).map((value) => ({
+const dataSource: DataSourceType[] = Array.from(Array(16).keys()).map((value) => ({
 	'#': value + 1,
 	item: `Apple-${value}`,
 	quantity: Math.floor(Math.random() * 100),
@@ -48,39 +48,45 @@ const Page = () => {
 					className="button-link">
 					←
 				</Link>
-				<h1 style={{ lineHeight: 1.1, margin: 0 }}>table</h1>
+				<h1>table</h1>
 			</div>
 			<div className="d-flex gap-1">
-				<table>
-					<thead>
-						<tr>
-							{columns.map((column, index) => (
-								<th
-									key={`header-${index}`}
-									scope="col">
-									{column.title}
-								</th>
-							))}
-						</tr>
-					</thead>
-					<tbody>
-						{dataSource.map((data: DataSourceType, index) => (
-							<tr key={`row-${index}`}>
-								{columns.map((column, _index) =>
-									'scope' in column ? (
-										<th
-											key={`cell-${index}-${_index}`}
-											scope="row">
-											{data[column.dataIndex]}
-										</th>
-									) : (
-										<td key={`cell-${index}-${_index}`}>{data[column.dataIndex]}</td>
-									)
-								)}
+				<div
+					className="scroll-x"
+					style={{
+						width: '100%'
+					}}>
+					<table>
+						<thead>
+							<tr>
+								{columns.map((column, index) => (
+									<th
+										key={`header-${index}`}
+										scope="col">
+										{column.title}
+									</th>
+								))}
 							</tr>
-						))}
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							{dataSource.map((data: DataSourceType, index) => (
+								<tr key={`row-${index}`}>
+									{columns.map((column, _index) =>
+										'scope' in column ? (
+											<th
+												key={`cell-${index}-${_index}`}
+												scope="row">
+												{data[column.dataIndex]}
+											</th>
+										) : (
+											<td key={`cell-${index}-${_index}`}>{data[column.dataIndex]}</td>
+										)
+									)}
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	)
