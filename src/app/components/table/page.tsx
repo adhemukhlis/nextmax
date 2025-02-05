@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import ButtonBack from '@/components/buttons/back'
 type DataSourceType = {
 	'#': number
 	item: string
@@ -42,14 +42,10 @@ const dataSource: DataSourceType[] = Array.from(Array(16).keys()).map((value) =>
 const Page = () => {
 	return (
 		<div className="page column gap-2 page-padding">
-			<div className="d-flex align-center gap-1">
-				<Link
-					href="/components"
-					className="button-link flip">
-					➜
-				</Link>
-				<h1>table</h1>
-			</div>
+			<ButtonBack
+				navigateTo="/components"
+				label="table"
+			/>
 			<div className="d-flex gap-1">
 				<div
 					className="scroll-x"
