@@ -1,21 +1,20 @@
 import ButtonBack from '@/components/buttons/back'
-import Button from '@/components/ui/button'
+import Progress from '@/components/ui/progress'
 
 const Page = () => {
 	return (
 		<div className="page column gap-2 page-padding">
 			<ButtonBack
 				navigateTo="/components"
-				label="button"
+				label="progress"
 			/>
 			<div className="d-flex gap-1">
-				<Button variant="text">Text</Button>
-				<Button variant="solid">Solid</Button>
-				<Button variant="outline">Outline</Button>
-				<Button variant="filled">Outline</Button>
+				<Progress
+					max={100}
+					value={80}
+				/>
 			</div>
 		</div>
 	)
 }
-
 export default Page

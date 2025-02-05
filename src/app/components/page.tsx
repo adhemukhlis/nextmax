@@ -1,16 +1,13 @@
+import ButtonBack from '@/components/buttons/back'
 import Link from 'next/link'
 
 const Page = () => {
 	return (
 		<div className="page column gap-2 page-padding">
-			<div className="d-flex align-center gap-1">
-				<Link
-					href="/"
-					className="button-link flip">
-					➜
-				</Link>
-				<h1>components</h1>
-			</div>
+			<ButtonBack
+				navigateTo="/"
+				label="components"
+			/>
 			<div className="d-flex gap-1">
 				<Link
 					href="/components/button"
@@ -21,6 +18,51 @@ const Page = () => {
 					href="/components/table"
 					className="button-link">
 					Table
+				</Link>
+				<Link
+					href="/components/modal"
+					className="button-link">
+					Modal
+				</Link>
+				<Link
+					href="/components/input"
+					className="button-link">
+					Input
+				</Link>
+				<Link
+					href="/components/group"
+					className="button-link">
+					Group
+				</Link>
+				<Link
+					href="/components/auto-complete"
+					className="button-link">
+					Auto Complete
+				</Link>
+				<Link
+					href="/components/detail"
+					className="button-link">
+					Detail
+				</Link>
+				<Link
+					href="/components/typography"
+					className="button-link">
+					Typography
+				</Link>
+				<Link
+					href="/components/meter"
+					className="button-link">
+					Meter
+				</Link>
+				<Link
+					href="/components/progress"
+					className="button-link">
+					Progress
+				</Link>
+				<Link
+					href="/components/select"
+					className="button-link">
+					Select
 				</Link>
 			</div>
 		</div>

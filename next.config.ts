@@ -1,18 +1,19 @@
 import type { NextConfig } from 'next'
-import nextJsObfuscator from 'nextjs-obfuscator'
 
-const withNextJsObfuscator = nextJsObfuscator(
-	{
-		disableConsoleOutput: false,
-		debugProtection: true,
-		debugProtectionInterval: 4000,
-		ignoreImports: true,
-		selfDefending: true
-	},
-	{ enabled: true, log: true }
-)
+const cspHeader = `
+    default-src 'self';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' blob: data:;
+    font-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'none';
+    upgrade-insecure-requests;
+`
 
-const nextConfig: NextConfig = withNextJsObfuscator({
+const nextConfig: NextConfig = {
 	compiler: {
 		removeConsole: {
 			exclude: ['error', 'warn', 'info']
@@ -26,10 +27,30 @@ const nextConfig: NextConfig = withNextJsObfuscator({
 		ignoreDuringBuilds: true
 	},
 	reactStrictMode: false, // I prefer to set to false to prevent double rendering.
+	productionBrowserSourceMaps: false,
 	outputFileTracingIncludes: {
 		'/': ['./src/**/*']
 	},
-	trailingSlash: false
-})
+	trailingSlash: false,
+	experimental: {
+		turbo: {
+			resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json']
+		},
+		serverSourceMaps: false
+	},
+	async headers() {
+		return [
+			{
+				source: '/(.*)',
+				headers: [
+					{
+						key: 'Content-Security-Policy',
+						value: cspHeader.replace(/\n/g, '')
+					}
+				]
+			}
+		]
+	}
+}
 
 export default nextConfig
