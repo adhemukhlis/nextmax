@@ -8,7 +8,7 @@ const Page = () => {
 				navigateTo="/"
 				label="components"
 			/>
-			<div className="d-flex gap-1">
+			<div className="d-flex gap-1 wrap">
 				<Link
 					href="/components/button"
 					className="button-link">

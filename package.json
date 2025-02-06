@@ -6,9 +6,10 @@
 		"dev": "next dev --turbo",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint",
+		"lint": "eslint .",
 		"format": "yarn prettier --config .prettierrc --write ./src",
-		"dependencies-upgrade": "yarn yarn-upgrade-all"
+		"dependencies-upgrade": "yarn yarn-upgrade-all",
+		"scss-fix": "yarn sass-migrator module --migrate-deps src/styles/global.scss"
 	},
 	"dependencies": {
 		"next": "^15.1.6",
@@ -16,19 +17,24 @@
 		"react-dom": "^19.0.0"
 	},
 	"devDependencies": {
+		"@eslint/eslintrc": "^3.2.0",
+		"@eslint/js": "^9.19.0",
 		"@types/node": "^22.13.1",
 		"@types/react": "^19.0.8",
 		"@types/react-dom": "^19.0.3",
-		"eslint": "^8",
+		"eslint": "^9.19.0",
 		"eslint-config-next": "^15.1.6",
+		"eslint-plugin-next": "^0.0.0",
+		"eslint-plugin-react": "^7.37.4",
+		"eslint-plugin-react-hooks": "^5.1.0",
 		"prettier": "^3.4.2",
 		"sass": "^1.81.0",
+		"sass-migrator": "^2.3.1",
 		"typescript": "^5.7.3",
 		"yarn-upgrade-all": "^0.7.4"
 	},
 	"yarn-upgrade-all": {
 		"ignore": [
-			"eslint",
 			"sass"
 		]
 	}

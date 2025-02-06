@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
 			exclude: ['error', 'warn', 'info']
 		}
 	},
+
 	poweredByHeader: false,
 	typescript: {
 		ignoreBuildErrors: true
@@ -34,10 +35,11 @@ const nextConfig: NextConfig = {
 	trailingSlash: false,
 	experimental: {
 		turbo: {
-			resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json']
+			resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json', '.scss']
 		},
 		serverSourceMaps: false
 	},
+
 	async headers() {
 		return [
 			{

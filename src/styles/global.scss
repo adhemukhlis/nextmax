@@ -1,3 +1,4 @@
+@use 'sass:map';
 * {
 	box-sizing: border-box;
 	padding: 0;
@@ -38,8 +39,8 @@ $breakpoints: (
 
 // Mixin for media queries
 @mixin media-breakpoint-up($size) {
-	@if map-has-key($breakpoints, $size) {
-		@media (min-width: map-get($breakpoints, $size)) {
+	@if map.has-key($breakpoints, $size) {
+		@media (min-width: map.get($breakpoints, $size)) {
 			@content;
 		}
 	} @else {
@@ -153,6 +154,10 @@ table {
 	justify-content: center;
 }
 
+.wrap {
+	flex-wrap: wrap;
+}
+
 .column {
 	flex-direction: column;
 }
@@ -212,42 +217,6 @@ fieldset {
 	border-radius: 8px;
 	width: 300px;
 	text-align: center;
-}
-
-.input-container {
-	position: relative;
-	width: 300px;
-	margin-top: 1rem;
-	align-self: flex-start;
-
-	input {
-		width: 100%;
-		padding: 0.6rem;
-		border: 1px solid #ccc;
-		border-radius: 0.6rem;
-		font-size: 16px;
-		outline: none;
-		background-color: rgba(200, 200, 200, 0.04);
-	}
-
-	label {
-		position: absolute;
-		top: 50%;
-		transform: translate(0, -50%);
-		left: 12px;
-		font-size: 0.8rem;
-		color: #aaa;
-		transition: all 0.2s ease;
-		pointer-events: none;
-	}
-
-	input:focus + label,
-	input:not(:placeholder-shown) + label {
-		top: -1rem;
-		left: 0;
-		font-size: 1rem;
-		color: #000;
-	}
 }
 
 kbd {
