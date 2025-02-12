@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Rubik } from 'next/font/google'
 import '@/styles/global.scss'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const nextFont = Rubik({
 	style: ['normal', 'italic'],
@@ -27,7 +28,10 @@ const RootLayout = ({
 }>) => {
 	return (
 		<html lang="en">
-			<body className={`${nextFont.variable}`}>{children}</body>
+			<body className={`${nextFont.variable}`}>
+				{children}
+				<SpeedInsights />
+			</body>
 		</html>
 	)
 }
