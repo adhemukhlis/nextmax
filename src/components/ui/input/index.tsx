@@ -10,7 +10,7 @@ const Input: FC<PropsWithChildren<InputProps>> = ({ name, label }) => {
 		<div className={_style['input-container']}>
 			<input
 				type="text"
-				placeholder=""
+				placeholder=" "
 				name={name}
 				required
 			/>
