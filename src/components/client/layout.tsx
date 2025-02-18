@@ -8,7 +8,7 @@ type RootLayoutClientProps = {
 const RootLayoutClient: FC<RootLayoutClientProps> = ({ buildId }) => {
 	useEffect(() => {
 		console.table({
-			BuildID: buildId
+			BUILD_ID: buildId
 		})
 	}, [])
 	return <></>
