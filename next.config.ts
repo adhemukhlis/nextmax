@@ -16,7 +16,7 @@ const cspHeader = `
 const nextConfig: NextConfig = {
 	compiler: {
 		removeConsole: {
-			exclude: ['error', 'warn', 'info']
+			exclude: ['error', 'warn', 'info', 'table']
 		}
 	},
 
