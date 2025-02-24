@@ -64,6 +64,31 @@ const Page = () => {
 					className="button-link">
 					Select
 				</Link>
+				<Link
+					href="/components/color"
+					className="button-link">
+					Color
+				</Link>
+				<Link
+					href="/components/checkbox"
+					className="button-link">
+					Checkbox
+				</Link>
+				<Link
+					href="/components/datepicker"
+					className="button-link">
+					Datepicker
+				</Link>
+				<Link
+					href="/components/radio"
+					className="button-link">
+					Radio
+				</Link>
+				<Link
+					href="/components/range"
+					className="button-link">
+					Range
+				</Link>
 			</div>
 		</div>
 	)
