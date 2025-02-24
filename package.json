@@ -9,7 +9,8 @@
 		"lint": "eslint .",
 		"format": "yarn prettier --config .prettierrc --write ./src",
 		"dependencies-upgrade": "yarn yarn-upgrade-all",
-		"scss-fix": "yarn sass-migrator module --migrate-deps src/styles/global.scss"
+		"scss-fix": "yarn sass-migrator module --migrate-deps src/styles/global.scss",
+		"analyze": "ANALYZE=true next build"
 	},
 	"dependencies": {
 		"@vercel/speed-insights": "^1.2.0",
@@ -20,6 +21,7 @@
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.2.0",
 		"@eslint/js": "^9.19.0",
+		"@next/bundle-analyzer": "^15.1.7",
 		"@types/node": "^22.13.1",
 		"@types/react": "^19.0.8",
 		"@types/react-dom": "^19.0.3",

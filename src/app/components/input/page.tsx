@@ -8,10 +8,33 @@ const Page = () => {
 				navigateTo="/components"
 				label="input"
 			/>
-			<div className="d-flex gap-1">
+			<div className="d-flex gap-1 column">
 				<Input
 					name="full_name"
 					label="Full Name"
+				/>
+				<Input
+					type="email"
+					name="email"
+					label="Email"
+				/>
+				<Input
+					type="password"
+					name="current-password"
+					id="current-password"
+					label="Password"
+					minLength={8}
+				/>
+				<Input
+					type="number"
+					name="quantity"
+					label="Quantity"
+				/>
+				<input
+					type="file"
+					id="avatar"
+					name="avatar"
+					accept="image/png, image/jpeg"
 				/>
 			</div>
 		</div>

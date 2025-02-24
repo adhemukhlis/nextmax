@@ -4,14 +4,19 @@ import _style from './style.module.scss'
 type InputProps = {
 	name: string
 	label: string
+	type?: string
+	id?: string
+	minLength?: number
 }
-const Input: FC<PropsWithChildren<InputProps>> = ({ name, label }) => {
+const Input: FC<PropsWithChildren<InputProps>> = ({ name, label, type = 'text', id, minLength }) => {
 	return (
 		<div className={_style['input-container']}>
 			<input
-				type="text"
+				id={id}
+				type={type}
 				placeholder=" "
 				name={name}
+				minLength={minLength}
 				required
 			/>
 			<label htmlFor={name}>{label}</label>
