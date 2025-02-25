@@ -32,13 +32,11 @@ const RootLayoutClient: FC<RootLayoutClientProps> = ({ buildId }) => {
 		const dataURL = canvas.toDataURL().split(',')[1]
 		// return Base64.stringify(sha256(dataURL))
 
-		const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
-		const debugInfo = !!gl ? gl.getExtension('WEBGL_debug_renderer_info') : undefined
 		console.info({
 			userAgent: navigator.userAgent,
-			userAgentData: navigator.userAgentData,
-			mobile: navigator.userAgentData.mobile,
-			os: navigator.userAgentData.platform,
+			userAgentData: navigator?.userAgentData,
+			mobile: navigator?.userAgentData?.mobile,
+			os: navigator?.userAgentData?.platform,
 			platform: navigator.platform,
 			vendor: navigator.vendor,
 			tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
