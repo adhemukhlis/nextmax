@@ -25,7 +25,7 @@ const DetailPage: FC = () => {
 					<h2>Modal Title</h2>
 					<p>This is a simple modal with a blurred background.</p>
 					<Link
-						href="/components/button"
+						href="/components/modal"
 						className="button-link">
 						Close
 					</Link>

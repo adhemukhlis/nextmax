@@ -211,6 +211,9 @@ table {
 	border-radius: 8px;
 	width: 300px;
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 
 kbd {
