@@ -10,22 +10,11 @@ const Page = () => {
 			<div className="d-flex gap-1">
 				<div>
 					<input
-						type="checkbox"
-						id="scales"
-						name="scales"
-						defaultValue="scales"
-						defaultChecked
+						type="color"
+						id="colors"
+						name="colors"
 					/>
-					<label htmlFor="scales">Scales</label>
-				</div>
-				<div>
-					<input
-						type="checkbox"
-						id="horns"
-						name="horns"
-						defaultValue="horns"
-					/>
-					<label htmlFor="horns">Horns</label>
+					<label htmlFor="colors">Colors</label>
 				</div>
 			</div>
 		</div>
