@@ -146,6 +146,7 @@ table {
 
 .page {
 	@extend .d-flex;
+	@extend .scroll-x;
 	flex: 1;
 }
 
