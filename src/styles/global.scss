@@ -23,6 +23,7 @@ body {
 	font-kerning: normal;
 	font-variant-ligatures: common-ligatures;
 	// experiment: may hos no effect
+	// background-color: slateblue;
 
 	display: flex;
 	background-color: #fafafa;
@@ -148,6 +149,9 @@ table {
 	@extend .d-flex;
 	@extend .scroll-x;
 	flex: 1;
+	background-image: url('/_assets/noise-light.png');
+	background-repeat: repeat;
+	// opacity: 0.2;
 }
 
 .align-center {

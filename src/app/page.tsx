@@ -7,6 +7,7 @@ const Home = () => {
 			<div className="d-flex gap-1">
 				<Link
 					href="/components"
+					prefetch={true}
 					className="button-link">
 					components
 				</Link>
