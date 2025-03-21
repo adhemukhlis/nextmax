@@ -1,23 +1,31 @@
 import { FC, PropsWithChildren } from 'react'
+import _style from './style.module.scss'
+import { Options } from './type'
+
 type AutoCompleteProps = {
 	label: string
+	name: string
+	options: Options
 }
-const AutoComplete: FC<PropsWithChildren<AutoCompleteProps>> = ({ label }) => {
+const AutoComplete: FC<PropsWithChildren<AutoCompleteProps>> = ({ label, name, options }) => {
+	const ts = String(Date.now() + Math.random() * 1000)
 	return (
-		<div className="d-flex column">
-			<label htmlFor="ice-cream-choice">{label}</label>
+		<div className={_style['input-container']}>
 			<input
-				list="ice-cream-flavors"
-				id="ice-cream-choice"
-				name="ice-cream-choice"
+				list={ts}
+				id={name}
+				name={name}
+				placeholder=" "
 			/>
+			<label htmlFor={name}>{label}</label>
 
-			<datalist id="ice-cream-flavors">
-				<option value="Chocolate"></option>
-				<option value="Coconut"></option>
-				<option value="Mint"></option>
-				<option value="Strawberry"></option>
-				<option value="Vanilla"></option>
+			<datalist id={ts}>
+				{options.map((option, index) => (
+					<option
+						key={`ac-${index}`}
+						value={option}
+					/>
+				))}
 			</datalist>
 		</div>
 	)
