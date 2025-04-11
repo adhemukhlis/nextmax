@@ -1,5 +1,6 @@
 import ButtonBack from '@/components/buttons/back'
 import Input from '@/components/ui/input'
+import InputNumber from '@/components/ui/input-number'
 
 const Page = () => {
 	return (
@@ -35,6 +36,10 @@ const Page = () => {
 					id="avatar"
 					name="avatar"
 					accept="image/png, image/jpeg"
+				/>
+				<InputNumber
+					label="Phone"
+					name="phone"
 				/>
 			</div>
 		</div>
