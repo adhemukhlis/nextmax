@@ -7,7 +7,7 @@ const middleware = async (request: NextRequest) => {
 	const cspHeader = `
     default-src 'self';
     script-src 'self' https://va.vercel-scripts.com 'unsafe-inline' 'unsafe-eval';
-		script-src-elem http://localhost:3002/ https://va.vercel-scripts.com 'unsafe-inline';
+		script-src-elem http://localhost:3002/ https://nextmax.vercel.app/ https://va.vercel-scripts.com 'unsafe-inline';
     style-src 'self' 'nonce-${nonce}';
 		style-src-elem http://localhost:3002/ 'unsafe-inline';
     img-src 'self' blob: data:;
