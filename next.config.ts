@@ -25,10 +25,10 @@ const nextConfig: NextConfig = {
 		'/': ['./src/**/*']
 	},
 	trailingSlash: false,
+	turbopack: {
+		resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json', '.scss']
+	},
 	experimental: {
-		turbo: {
-			resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json', '.scss']
-		},
 		serverSourceMaps: false
 	}
 }
