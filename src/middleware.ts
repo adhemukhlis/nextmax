@@ -9,7 +9,7 @@ const middleware = async (request: NextRequest) => {
     script-src 'self' https://va.vercel-scripts.com 'unsafe-inline' 'unsafe-eval';
 		script-src-elem http://localhost:3002/ https://nextmax.vercel.app/ https://va.vercel-scripts.com 'unsafe-inline';
     style-src 'self' 'nonce-${nonce}';
-		style-src-elem http://localhost:3002/ 'unsafe-inline';
+		style-src-elem 'self' http://localhost:3002/ 'unsafe-inline';
     img-src 'self' blob: data:;
     font-src 'self';
     object-src 'none';
