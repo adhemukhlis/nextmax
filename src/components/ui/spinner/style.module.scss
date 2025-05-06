@@ -1,0 +1,15 @@
+.spinner {
+	animation: spin 1s linear infinite;
+	line-height: 1;
+	width: 1rem;
+	aspect-ratio: 1/1;
+	display: inline-block;
+	color: inherit;
+	// height: 1em; /* matches font-size for precise box */
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}

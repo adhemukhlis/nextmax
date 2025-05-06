@@ -1,4 +1,6 @@
-const Layout = ({ children }: { children: React.ReactNode }) => {
+import { ReactNode } from 'react'
+
+const Layout = ({ children }: { children: ReactNode }) => {
 	return <>{children}</>
 }
 

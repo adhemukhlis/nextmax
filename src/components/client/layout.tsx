@@ -1,13 +1,13 @@
 'use client'
+// import { useLinkStatus } from 'next/link'
 import { FC, useEffect } from 'react'
-import { useLinkStatus } from 'next/link'
 
 type RootLayoutClientProps = {
 	buildId?: string
 }
 
 const RootLayoutClient: FC<RootLayoutClientProps> = ({ buildId }) => {
-	const { pending } = useLinkStatus()
+	// const { pending } = useLinkStatus()
 	useEffect(() => {
 		console.table({
 			BUILD_ID: buildId
@@ -58,9 +58,7 @@ const RootLayoutClient: FC<RootLayoutClientProps> = ({ buildId }) => {
 		// 	language: navigator.language
 		// })
 	}, [])
-	useEffect(() => {
-		console.info(pending ? 'LOADING' : 'LOADED')
-	}, [pending])
+
 	return <></>
 }
 export default RootLayoutClient

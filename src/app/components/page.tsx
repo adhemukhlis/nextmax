@@ -1,5 +1,6 @@
-import ButtonBack from '@/components/buttons/back'
 import Link from 'next/link'
+
+import ButtonBack from '@/components/buttons/back'
 
 const Page = () => {
 	return (

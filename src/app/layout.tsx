@@ -1,8 +1,12 @@
-import type { Metadata, Viewport } from 'next'
-import { Rubik } from 'next/font/google'
-import '@/styles/global.scss'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Rubik } from 'next/font/google'
+import { ReactNode } from 'react'
+
 import RootLayoutClient from '@/components/client/layout'
+
+import type { Metadata, Viewport } from 'next'
+
+import '@/styles/global.scss'
 
 const nextFont = Rubik({
 	style: ['normal', 'italic'],
@@ -25,7 +29,7 @@ export const viewport: Viewport = {
 const RootLayout = ({
 	children
 }: Readonly<{
-	children: React.ReactNode
+	children: ReactNode
 }>) => {
 	const GIT_SHORT_COMMIT_SHA = String(process.env.VERCEL_GIT_COMMIT_SHA ?? '').slice(0, 7)
 	return (
