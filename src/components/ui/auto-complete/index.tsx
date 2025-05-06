@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren } from 'react'
+
 import _style from './style.module.scss'
 import { Options } from './type'
 

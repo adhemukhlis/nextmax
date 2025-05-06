@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren } from 'react'
+
 import { TableProps } from './type'
 
 const Table: FC<PropsWithChildren<TableProps>> = ({ columns, dataSource }) => {

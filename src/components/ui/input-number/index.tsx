@@ -1,6 +1,7 @@
 'use client'
 
 import { FC, PropsWithChildren, useEffect, useRef, useState } from 'react'
+
 import _style from './style.module.scss'
 import ensureArray from '@/utils/ensure-array'
 
