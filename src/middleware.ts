@@ -1,29 +1,32 @@
 import { NextRequest, NextResponse, userAgent } from 'next/server'
 
+// import { decrypt, encrypt } from './utils/crypto-zero/crypto-core'
+// import { decodeFromZeroWidthCharactersText, encodeToZeroWidthCharactersText } from './utils/crypto-zero/stegano-core'
+
 const middleware = async (request: NextRequest) => {
 	const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
 	const requestHeaders = new Headers(request.headers)
 
-	const cspHeader = `
-    default-src 'self';
-    script-src 'self' https://va.vercel-scripts.com 'unsafe-inline' 'unsafe-eval';
-		script-src-elem http://localhost:3002/ https://nextmax.vercel.app/ https://va.vercel-scripts.com 'unsafe-inline';
-    style-src 'self' 'nonce-${nonce}';
-		style-src-elem 'self' http://localhost:3002/ 'unsafe-inline';
-    img-src 'self' blob: data:;
-    font-src 'self';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    upgrade-insecure-requests;
-  `
+	// const cspHeader = `
+	//   default-src 'self';
+	//   script-src 'self' https://va.vercel-scripts.com 'unsafe-inline' 'unsafe-eval';
+	// 	script-src-elem 'self' https://va.vercel-scripts.com 'unsafe-inline';
+	//   style-src 'self' 'nonce-${nonce} 'unsafe-inline'';
+	// 	style-src-elem 'self' 'unsafe-inline';
+	//   img-src 'self' blob: data:;
+	//   font-src 'self';
+	//   object-src 'none';
+	//   base-uri 'self';
+	//   form-action 'self';
+	//   frame-ancestors 'none';
+	//   upgrade-insecure-requests;
+	// `
 
 	// Replace newline characters and spaces
-	const contentSecurityPolicyHeaderValue = cspHeader.replace(/\s{2,}/g, ' ').trim()
+	// const contentSecurityPolicyHeaderValue = cspHeader.replace(/\s{2,}/g, ' ').trim()
 
 	requestHeaders.set('x-nonce', nonce)
-	requestHeaders.set('Content-Security-Policy', contentSecurityPolicyHeaderValue)
+	// requestHeaders.set('Content-Security-Policy', contentSecurityPolicyHeaderValue)
 
 	requestHeaders.set('x-url', request.nextUrl.toString())
 	const nextResponse = NextResponse.next({
@@ -37,9 +40,18 @@ const middleware = async (request: NextRequest) => {
 	if (!isBot) {
 		console.info(device)
 		console.info('HEADERS', requestHeadersArray)
+		// const enc = await encrypt(device?.model ?? '', 'test')
+		// console.info('👻', enc)
+		// const dec = await decrypt(enc.result ?? '', 'test')
+		// console.info('👻👻', dec)
+
+		// const encSteg = encodeToZeroWidthCharactersText(device.model ?? '', 'test')
+		// console.info('😈', `|${encSteg}|`)
+		// const decSteg = decodeFromZeroWidthCharactersText(encSteg, 'test')
+		// console.info('😈😈', `|${decSteg}|`)
 	}
 
-	nextResponse.headers.set('Content-Security-Policy', contentSecurityPolicyHeaderValue)
+	// nextResponse.headers.set('Content-Security-Policy', contentSecurityPolicyHeaderValue)
 
 	return nextResponse
 }

@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+import LinkLoading from '@/components/LinkLoading'
+
 const Home = () => {
 	return (
 		<div className="page align-center justify-center column gap-2">
@@ -9,7 +11,7 @@ const Home = () => {
 					href="/components"
 					prefetch={true}
 					className="button-link">
-					components
+					components <LinkLoading />
 				</Link>
 			</div>
 		</div>
