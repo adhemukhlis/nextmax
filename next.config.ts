@@ -23,7 +23,7 @@ const nextConfig: NextConfig = {
 	reactStrictMode: false, // I prefer to set to false to prevent double rendering.
 	productionBrowserSourceMaps: false,
 	outputFileTracingIncludes: {
-		'/': ['./src/**/*']
+		'/': ['./src/**/*'] // keep src directory include production
 	},
 	trailingSlash: false,
 	turbopack: {
