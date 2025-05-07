@@ -8,6 +8,7 @@ const LoginPage = async () => {
 	if (session.is_authenticated) {
 		redirect('/dashboard')
 	}
+
 	return (
 		<>
 			<div className="d-flex gap-1 column">
