@@ -1,6 +1,5 @@
-import Link from 'next/link'
-
 import ButtonBack from '@/components/buttons/back'
+import ButtonLink from '@/components/ui/button-link'
 
 const PageComponent = () => {
 	return (
@@ -10,11 +9,7 @@ const PageComponent = () => {
 				label="modal"
 			/>
 			<div className="d-flex gap-1">
-				<Link
-					href="/components/modal/detail"
-					className="button-link">
-					Open Modal
-				</Link>
+				<ButtonLink to="/components/modal/detail">Open Modal</ButtonLink>
 			</div>
 		</div>
 	)
