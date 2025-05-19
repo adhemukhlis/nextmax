@@ -25,6 +25,7 @@ const Page = () => {
 				<ButtonLink to="/components/datepicker">Datepicker</ButtonLink>
 				<ButtonLink to="/components/radio">Radio</ButtonLink>
 				<ButtonLink to="/components/range">Range</ButtonLink>
+				<ButtonLink to="/components/virtual-list">Virtual List</ButtonLink>
 			</div>
 		</div>
 	)
