@@ -1,6 +1,5 @@
-import Link from 'next/link'
-
 import ButtonBack from '@/components/buttons/back'
+import ButtonLink from '@/components/ui/button-link'
 
 const Page = () => {
 	return (
@@ -10,102 +9,22 @@ const Page = () => {
 				label="components"
 			/>
 			<div className="d-flex gap-1 wrap">
-				<Link
-					href="/components/button"
-					prefetch={true}
-					className="button-link">
-					Button
-				</Link>
-				<Link
-					href="/components/table"
-					prefetch={true}
-					className="button-link">
-					Table
-				</Link>
-				<Link
-					href="/components/modal"
-					prefetch={true}
-					className="button-link">
-					Modal
-				</Link>
-				<Link
-					href="/components/input"
-					prefetch={true}
-					className="button-link">
-					Input
-				</Link>
-				<Link
-					href="/components/group"
-					prefetch={true}
-					className="button-link">
-					Group
-				</Link>
-				<Link
-					href="/components/auto-complete"
-					prefetch={true}
-					className="button-link">
-					Auto Complete
-				</Link>
-				<Link
-					href="/components/detail"
-					prefetch={true}
-					className="button-link">
-					Detail
-				</Link>
-				<Link
-					href="/components/typography"
-					prefetch={true}
-					className="button-link">
-					Typography
-				</Link>
-				<Link
-					href="/components/meter"
-					prefetch={true}
-					className="button-link">
-					Meter
-				</Link>
-				<Link
-					href="/components/progress"
-					prefetch={true}
-					className="button-link">
-					Progress
-				</Link>
-				<Link
-					href="/components/select"
-					prefetch={true}
-					className="button-link">
-					Select
-				</Link>
-				<Link
-					href="/components/color"
-					prefetch={true}
-					className="button-link">
-					Color
-				</Link>
-				<Link
-					href="/components/checkbox"
-					prefetch={true}
-					className="button-link">
-					Checkbox
-				</Link>
-				<Link
-					href="/components/datepicker"
-					prefetch={true}
-					className="button-link">
-					Datepicker
-				</Link>
-				<Link
-					href="/components/radio"
-					prefetch={true}
-					className="button-link">
-					Radio
-				</Link>
-				<Link
-					href="/components/range"
-					prefetch={true}
-					className="button-link">
-					Range
-				</Link>
+				<ButtonLink to="/components/button">Button</ButtonLink>
+				<ButtonLink to="/components/table">Table</ButtonLink>
+				<ButtonLink to="/components/modal">Modal</ButtonLink>
+				<ButtonLink to="/components/input">Input</ButtonLink>
+				<ButtonLink to="/components/group">Group</ButtonLink>
+				<ButtonLink to="/components/auto-complete">Auto Complete</ButtonLink>
+				<ButtonLink to="/components/detail">Detail</ButtonLink>
+				<ButtonLink to="/components/typography">Typography</ButtonLink>
+				<ButtonLink to="/components/meter">Meter</ButtonLink>
+				<ButtonLink to="/components/progress">Progress</ButtonLink>
+				<ButtonLink to="/components/select">Select</ButtonLink>
+				<ButtonLink to="/components/color">Color</ButtonLink>
+				<ButtonLink to="/components/checkbox">Checkbox</ButtonLink>
+				<ButtonLink to="/components/datepicker">Datepicker</ButtonLink>
+				<ButtonLink to="/components/radio">Radio</ButtonLink>
+				<ButtonLink to="/components/range">Range</ButtonLink>
 			</div>
 		</div>
 	)
