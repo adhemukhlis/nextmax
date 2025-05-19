@@ -96,6 +96,9 @@ $breakpoints: (
 		background-color 0.2s,
 		color 0.2s;
 	border-radius: 0.4rem;
+	user-select: none;
+	user-drag: none;
+	-webkit-user-drag: none;
 	&:hover {
 		background-color: rgba($color: #000000, $alpha: 1);
 		color: #fff;
