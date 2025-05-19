@@ -7,6 +7,7 @@
 		"start": "yarn env-cmd -x -f .env next start --turbopack -p '$PORT'",
 		"build": "next build --turbopack",
 		"lint": "eslint .",
+		"typecheck": "tsc --noEmit",
 		"fix": "eslint --fix .",
 		"format": "yarn prettier --config .prettierrc --write ./src",
 		"dependencies-upgrade": "yarn yarn-upgrade-all",
@@ -24,8 +25,8 @@
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.3.1",
 		"@eslint/js": "^9.26.0",
-    "@next/bundle-analyzer": "^15.3.2",
-    "@types/node": "^22.15.19",
+		"@next/bundle-analyzer": "^15.3.2",
+		"@types/node": "^22.15.19",
 		"@types/react": "^19.1.4",
 		"@types/react-dom": "^19.1.5",
 		"@typescript-eslint/eslint-plugin": "^8.32.1",
