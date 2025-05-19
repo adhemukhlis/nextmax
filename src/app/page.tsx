@@ -1,18 +1,14 @@
-import Link from 'next/link'
-
 import LinkLoading from '@/components/LinkLoading'
+import ButtonLink from '@/components/ui/button-link'
 
 const Home = () => {
 	return (
 		<div className="page align-center justify-center column gap-2">
 			<h1 className="text-lg">NEXTMA✘</h1>
 			<div className="d-flex gap-1">
-				<Link
-					href="/components"
-					prefetch={true}
-					className="button-link">
+				<ButtonLink to="/components">
 					components <LinkLoading />
-				</Link>
+				</ButtonLink>
 			</div>
 		</div>
 	)
