@@ -8,7 +8,11 @@ type ButtonBackProps = {
 const ButtonBack: FC<PropsWithChildren<ButtonBackProps>> = ({ navigateTo, label }) => {
 	return (
 		<div className="d-flex align-center gap-1">
-			<ButtonLink to={navigateTo}>➜</ButtonLink>
+			<ButtonLink
+				to={navigateTo}
+				flip>
+				➜
+			</ButtonLink>
 			<h1>{label}</h1>
 		</div>
 	)
