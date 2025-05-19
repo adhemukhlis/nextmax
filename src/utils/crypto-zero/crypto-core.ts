@@ -67,6 +67,7 @@ export const encrypt = async (plaintext: string, passphrase: string): Promise<Re
 			result
 		}
 	} catch (error: any) {
+		console.error('Encryption error:', error)
 		return {
 			isSuccess: false,
 			message: error?.message || 'Encryption failed',
@@ -100,6 +101,7 @@ export const decrypt = async (encrypted: string, passphrase: string): Promise<Re
 			result: decoder.decode(decrypted)
 		}
 	} catch (error: any) {
+		console.error('Decryption error:', error)
 		return {
 			isSuccess: false,
 			message: error?.message || 'Decryption failed',
