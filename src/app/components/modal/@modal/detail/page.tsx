@@ -1,5 +1,6 @@
-import Link from 'next/link'
 import { FC } from 'react'
+
+import ButtonLink from '@/components/ui/button-link'
 
 const DetailPage: FC = () => {
 	return (
@@ -24,11 +25,8 @@ const DetailPage: FC = () => {
 				<div className="modal">
 					<h2>Modal Title</h2>
 					<p>This is a simple modal with a blurred background.</p>
-					<Link
-						href="/components/modal"
-						className="button-link">
-						Close
-					</Link>
+
+					<ButtonLink to="/components/modal">Close</ButtonLink>
 				</div>
 			</div>
 		</div>
