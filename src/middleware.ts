@@ -1,36 +1,26 @@
-import {
-	NextRequest,
-	NextResponse
-	// userAgent
-} from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 import { decrypt } from './utils/crypto-zero/crypto-core'
-
-// import { decrypt, encrypt } from './utils/crypto-zero/crypto-core'
-// import { decodeFromZeroWidthCharactersText, encodeToZeroWidthCharactersText } from './utils/crypto-zero/stegano-core'
 
 const auth = async (request: NextRequest) => {
 	const pathname = request.nextUrl.pathname
 	const baseUrl = request.nextUrl.origin
-	const res = await fetch(`${baseUrl}/api/global`)
+	const res = await fetch(`${baseUrl}/api/global`, { cache: 'force-cache' })
 
 	const data = await res.json()
 	const protectedRoutes = data.data
 	const isProtected = protectedRoutes.includes(pathname)
-	console.info({ isProtected, pathname })
 	if (isProtected) {
 		const session = request.cookies.get('session')?.value
 
 		const decryptedCookieValue = await decrypt(String(session ?? ''), String(process.env.COOKIE_SECRET_KEY ?? ''))
 		const parsedCookieValue = decryptedCookieValue.isSuccess ? JSON.parse(decryptedCookieValue?.result ?? '') : {}
-		console.info({ session: parsedCookieValue })
+
 		const is_authenticated = parsedCookieValue?.is_authenticated
 		if (!is_authenticated) {
-			console.info('😈')
 			request.cookies.delete('session')
 			return NextResponse.redirect(new URL('/login', request.url))
 		}
-		//
 	}
 	return undefined
 }
@@ -41,7 +31,7 @@ const middleware = async (request: NextRequest) => {
 
 	const cspHeader = `
 		default-src 'self';
-		script-src 'self' 'nonce-${nonce}';
+		script-src 'self' 'nonce-${nonce}' https://va.vercel-scripts.com;
 		style-src 'self' 'nonce-${nonce}' 'unsafe-inline';
 		img-src 'self' blob: data:;
 		font-src 'self';
@@ -52,7 +42,6 @@ const middleware = async (request: NextRequest) => {
 		upgrade-insecure-requests;
 	`
 
-	// Replace newline characters and spaces
 	const contentSecurityPolicyHeaderValue = cspHeader.replace(/\s{2,}/g, ' ').trim()
 
 	requestHeaders.set('x-nonce', nonce)
@@ -65,25 +54,10 @@ const middleware = async (request: NextRequest) => {
 		}
 	})
 
-	// const requestHeadersArray = [...requestHeaders.entries()]
-	// const { isBot, device } = userAgent(request)
-	// if (!isBot) {
-	// console.info(device)
-	// console.info('HEADERS', requestHeadersArray)
-	// const enc = await encrypt(device?.model ?? '', 'test')
-	// console.info('👻', enc)
-	// const dec = await decrypt(enc.result ?? '', 'test')
-	// console.info('👻👻', dec)
-	// const encSteg = encodeToZeroWidthCharactersText(device.model ?? '', 'test')
-	// console.info('😈', `|${encSteg}|`)
-	// const decSteg = decodeFromZeroWidthCharactersText(encSteg, 'test')
-	// console.info('😈😈', `|${decSteg}|`)
-	// }
-
 	nextResponse.headers.set('Content-Security-Policy', contentSecurityPolicyHeaderValue)
 	const authResponse = await auth(request)
 	if (authResponse !== undefined) {
-		return authResponse // 🟢 ini yang bikin redirect berhasil
+		return authResponse
 	}
 	return nextResponse
 }
