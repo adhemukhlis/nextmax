@@ -42,9 +42,7 @@ const middleware = async (request: NextRequest) => {
 	const cspHeader = `
 		default-src 'self';
 		script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
-		script-src-elem 'self' https://va.vercel-scripts.com 'unsafe-inline';
 		style-src 'self' 'nonce-${nonce}';
-		style-src-elem 'self' 'unsafe-inline';
 		img-src 'self' blob: data:;
 		font-src 'self';
 		object-src 'none';
