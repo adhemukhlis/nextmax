@@ -30,7 +30,8 @@ const nextConfig: NextConfig = {
 		resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json', '.scss']
 	},
 	experimental: {
-		serverSourceMaps: false
+		serverSourceMaps: false,
+		// turbopackTreeShaking: true
 	}
 }
 
