@@ -40,18 +40,18 @@ const middleware = async (request: NextRequest) => {
 	const requestHeaders = new Headers(request.headers)
 
 	const cspHeader = `
-	  default-src 'self';
-	  script-src 'self' https://va.vercel-scripts.com 'unsafe-inline' 'unsafe-eval';
+		default-src 'self';
+		script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
 		script-src-elem 'self' https://va.vercel-scripts.com 'unsafe-inline';
-	  style-src 'self' 'nonce-${nonce} 'unsafe-inline'';
+		style-src 'self' 'nonce-${nonce}';
 		style-src-elem 'self' 'unsafe-inline';
-	  img-src 'self' blob: data:;
-	  font-src 'self';
-	  object-src 'none';
-	  base-uri 'self';
-	  form-action 'self';
-	  frame-ancestors 'none';
-	  upgrade-insecure-requests;
+		img-src 'self' blob: data:;
+		font-src 'self';
+		object-src 'none';
+		base-uri 'self';
+		form-action 'self';
+		frame-ancestors 'none';
+		upgrade-insecure-requests;
 	`
 
 	// Replace newline characters and spaces
