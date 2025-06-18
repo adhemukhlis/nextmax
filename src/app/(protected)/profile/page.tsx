@@ -1,5 +1,5 @@
-import ImageBasic from '@/components/ui/image'
 import { getSession } from '@/app/_actions/session'
+import ImageBasic from '@/components/ui/image'
 
 const ProfilePage = async () => {
 	const session = await getSession()
