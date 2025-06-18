@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation'
 import { destroySession, setSession } from './session'
 import { decodeFromZeroWidthCharactersText } from '@/utils/crypto-zero/stegano-core'
 type User = {
-	username: string
+	email: string
 	password: string
 }
 export const login = async (payload: string) => {
@@ -12,8 +12,8 @@ export const login = async (payload: string) => {
 
 	const body: User = JSON.parse(values)
 
-	const { username, password: _password } = body
-
+	const { email, password: _password } = body
+	const username = email.split('@')[0]
 	// try {
 	const user: {
 		user_id: string
@@ -24,14 +24,14 @@ export const login = async (payload: string) => {
 		is_authenticated: boolean
 	} | null = {
 		user_id: '0',
-		email: 'user@gmail.com',
-		username: username,
+		email,
+		username,
 		full_name: 'Common User',
-		profile_picture: 'https://imga/img.png',
+		profile_picture: `https://api.dicebear.com/9.x/big-smile/svg?seed=${username}`,
 		is_authenticated: true
 	}
 	if (user !== null) {
-		const { user_id, email, username, full_name, profile_picture, is_authenticated } = user
+		const { user_id, email, full_name, profile_picture, is_authenticated } = user
 		await setSession({
 			user_id,
 			email,

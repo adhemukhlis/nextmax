@@ -9,11 +9,19 @@ const LoginPage = async () => {
 		redirect('/dashboard')
 	}
 
+	const data =
+		process.env.NODE_ENV === 'development'
+			? {
+					email: String(process.env.USER_EMAIL ?? ''),
+					password: String(process.env.USER_PASSWORD ?? '')
+				}
+			: null
+
 	return (
 		<>
-			<div className="d-flex gap-1 column">
-				LOGIN
-				<FormClient />
+			<div className="column page align-center justify-center gap-1">
+				<h1>LOGIN</h1>
+				<FormClient data={data} />
 			</div>
 		</>
 	)

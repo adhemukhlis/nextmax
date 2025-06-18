@@ -30,8 +30,21 @@ const nextConfig: NextConfig = {
 		resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json', '.scss']
 	},
 	experimental: {
+<<<<<<< Updated upstream
 		serverSourceMaps: false,
 		// turbopackTreeShaking: true
+=======
+		serverSourceMaps: false
+	},
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'api.dicebear.com'
+			}
+		],
+		dangerouslyAllowSVG: true
+>>>>>>> Stashed changes
 	}
 }
 
