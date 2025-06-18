@@ -99,6 +99,7 @@ $breakpoints: (
 	user-select: none;
 	user-drag: none;
 	-webkit-user-drag: none;
+	text-align: center;
 	&:hover {
 		background-color: rgba($color: #000000, $alpha: 1);
 		color: #fff;
@@ -151,6 +152,12 @@ table {
 	}
 }
 
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
 .page {
 	@extend .d-flex;
 	@extend .scroll-x;
@@ -165,6 +172,10 @@ table {
 }
 .justify-center {
 	justify-content: center;
+}
+
+.flex-1 {
+	flex: 1;
 }
 
 .wrap {
@@ -241,4 +252,30 @@ kbd {
 	line-height: 1;
 	padding: 2px 4px;
 	white-space: nowrap;
+}
+
+.loading {
+	font-family: monospace;
+	font-size: 24px;
+	white-space: pre; /* biar spasi di akhir tetap terlihat */
+}
+
+.dots::after {
+	content: '   '; /* default: 3 spasi (tanpa titik) */
+	animation: dots 1s steps(3, end) infinite;
+}
+
+@keyframes dots {
+	0% {
+		content: '   ';
+	} /* loading */
+	33% {
+		content: '.  ';
+	} /* loading. */
+	66% {
+		content: '.. ';
+	} /* loading.. */
+	100% {
+		content: '...';
+	} /* loading... (opsional fase ke-4) */
 }

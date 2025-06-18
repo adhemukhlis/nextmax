@@ -15,7 +15,7 @@ type SessionType = {
 	expired_at?: string
 }
 
-export const setSession = async ({ user_id, email, full_name, username, is_authenticated, profile_picture }: SessionType) => {
+export const setSession = async ({ user_id, email, username, full_name, is_authenticated, profile_picture }: SessionType) => {
 	const SESSION_AGE = Number(process.env.SESSION_AGE) || 60 * 60 * 1000
 	const duration = SESSION_AGE
 	const expiredAt = new Date(new Date().getTime() + duration).toISOString()
