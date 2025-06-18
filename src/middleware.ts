@@ -5,7 +5,7 @@ import { decrypt } from './utils/crypto-zero/crypto-core'
 const auth = async (request: NextRequest) => {
 	const pathname = request.nextUrl.pathname
 	const baseUrl = request.nextUrl.origin
-	const res = await fetch(`${baseUrl}/api/global`, { cache: 'force-cache' })
+	const res = await fetch(`${baseUrl}/api/global`, { next: { revalidate: 60 } })
 
 	const data = await res.json()
 	const protectedRoutes = data.data
