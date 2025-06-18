@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { FC, useEffect, useRef, useState } from 'react'
+
 import style from './style.module.scss'
 
 const SKELETON_COMPONENT_ID = 'skeleton'

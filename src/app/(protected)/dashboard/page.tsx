@@ -1,6 +1,6 @@
-import ImageBasic from '@/components/ui/image'
 import LogoutButton from './_client/logout-button'
 import { getSession } from '@/app/_actions/session'
+import ImageBasic from '@/components/ui/image'
 
 const DashboardPage = async () => {
 	const session = await getSession()
