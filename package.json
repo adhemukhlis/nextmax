@@ -17,7 +17,7 @@
 		"install:prod": "yarn install --production"
 	},
 	"dependencies": {
-		"@next/bundle-analyzer": "^15.3.4",
+		"@next/bundle-analyzer": "^15.3.5",
 		"@vercel/speed-insights": "^1.2.0",
 		"dayjs": "^1.11.13",
 		"env-cmd": "^10.1.0",
