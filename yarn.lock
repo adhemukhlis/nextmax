@@ -2464,10 +2464,10 @@ safe-regex-test@^1.0.3, safe-regex-test@^1.1.0:
     es-errors "^1.3.0"
     is-regex "^1.2.1"
 
-sass-migrator@^2.3.3:
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/sass-migrator/-/sass-migrator-2.3.3.tgz#788542ddd5a74bcb09870fd7a864c750d3f10710"
-  integrity sha512-BZwrIcAVz0HLpQU2e0OKXU1rn61YfmOjbAv+6D6IQLl19O5+RHF4xpV2hZSyw4eS0ywq+5HDALA9TsE4E/njXw==
+sass-migrator@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/sass-migrator/-/sass-migrator-2.4.2.tgz#12c84c01b61732f9ea61ae0507aa67f3ffe3d8d8"
+  integrity sha512-YNvfvXtlP91H1YJ/csKs9IL3SnGHfAJNU/en/AfJmKKcFpouYX8K1NsQ+3hqyo9rP1zGPrlNM3Lp7mteeXReyQ==
 
 sass@^1.89.2:
   version "1.89.2"
