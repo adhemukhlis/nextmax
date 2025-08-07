@@ -17,7 +17,7 @@ const DetailPage: FC = () => {
 					height: '100%',
 					backgroundColor: 'rgba(40, 40, 40, 0.2)',
 					backdropFilter: 'blur(0.2rem)',
-
+					WebkitBackdropFilter: 'blur(0.2rem)',
 					display: 'flex',
 					justifyContent: 'center',
 					alignItems: 'center'
