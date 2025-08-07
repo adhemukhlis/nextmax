@@ -29,23 +29,25 @@ const middleware = async (request: NextRequest) => {
 	const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
 	const requestHeaders = new Headers(request.headers)
 
-	const cspHeader = `
-		default-src 'self';
-		script-src 'self' 'nonce-${nonce}' https://va.vercel-scripts.com;
-		style-src 'self' 'nonce-${nonce}' 'unsafe-inline';
-		img-src 'self' blob: data:;
-		font-src 'self';
-		object-src 'none';
-		base-uri 'self';
-		form-action 'self';
-		frame-ancestors 'none';
-		upgrade-insecure-requests;
-	`
+	// const cspHeader = `
+	// 	default-src 'self';
+	// 	script-src 'self' 'nonce-${nonce}' https://va.vercel-scripts.com;
+	// 	style-src 'self' 'nonce-${nonce}' 'unsafe-inline';
+	// 	img-src 'self' blob: data:;
+	// 	font-src 'self';
+	// 	object-src 'none';
+	// 	base-uri 'self';
+	// 	form-action 'self';
+	// 	frame-ancestors 'none';
+	// 	upgrade-insecure-requests;
+	// `
 
-	const contentSecurityPolicyHeaderValue = cspHeader.replace(/\s{2,}/g, ' ').trim()
+	// const contentSecurityPolicyHeaderValue = cspHeader.replace(/\s{2,}/g, ' ').trim()
 
 	requestHeaders.set('x-nonce', nonce)
-	requestHeaders.set('Content-Security-Policy', contentSecurityPolicyHeaderValue)
+	// if (process.env.NODE_ENV === 'production') {
+	// 	requestHeaders.set('Content-Security-Policy', contentSecurityPolicyHeaderValue)
+	// }
 
 	requestHeaders.set('x-url', request.nextUrl.toString())
 	const nextResponse = NextResponse.next({
@@ -54,7 +56,9 @@ const middleware = async (request: NextRequest) => {
 		}
 	})
 
-	nextResponse.headers.set('Content-Security-Policy', contentSecurityPolicyHeaderValue)
+	// if (process.env.NODE_ENV === 'production') {
+	// 	nextResponse.headers.set('Content-Security-Policy', contentSecurityPolicyHeaderValue)
+	// }
 	const authResponse = await auth(request)
 	if (authResponse !== undefined) {
 		return authResponse
