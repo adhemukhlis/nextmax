@@ -29,8 +29,10 @@ const nextConfig: NextConfig = {
 	turbopack: {
 		resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json', '.scss']
 	},
+	typedRoutes: true,
+	qualities: [20, 40, 60, 80, 100],
 	experimental: {
-		serverSourceMaps: false,
+		serverSourceMaps: false
 		// turbopackTreeShaking: true
 	}
 }

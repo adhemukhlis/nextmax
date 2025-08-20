@@ -22,6 +22,7 @@ const Input: FC<PropsWithChildren<InputProps>> = ({ name, label, type = 'text', 
 				minLength={minLength}
 				required
 				onChange={onChange}
+				suppressHydrationWarning
 			/>
 			<label htmlFor={name}>{label}</label>
 		</div>
