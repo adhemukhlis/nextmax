@@ -60,7 +60,7 @@ const getRoutes = async () => {
 // globalStore.set('protectedRoutes', protectedRoutes)
 
 const middleware = async (request: NextRequest) => {
-	const targetDir = path.join(process.cwd())
+	const targetDir = path.join(process.cwd(), '.next')
 	const items = fs.readdirSync(targetDir)
 	console.info('🚧', items)
 	const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
