@@ -61,6 +61,7 @@ const getRoutes = async () => {
 
 const middleware = async (request: NextRequest) => {
 	const targetDir = path.join(process.cwd(), '.next', 'server')
+	console.info('😈', targetDir.toString())
 	const items = fs.readdirSync(targetDir)
 	console.info('🚧', items)
 	const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
