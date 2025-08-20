@@ -7,7 +7,7 @@ const auth = async (request: NextRequest) => {
 	const pathname = request.nextUrl.pathname
 
 	let protectedRoutes = undefined
-	globalStore.set('protectedRoutes', protectedRoutes)
+
 	const isProtectedRoutesInitiated = globalStore.has('protectedRoutes')
 	if (isProtectedRoutesInitiated) {
 		protectedRoutes = globalStore.get('protectedRoutes')
@@ -15,6 +15,7 @@ const auth = async (request: NextRequest) => {
 		const baseUrl = request.nextUrl.origin
 		const res = await fetch(`${baseUrl}/api/global`, { next: { revalidate: 60 } })
 		const data = await res.json()
+		globalStore.set('protectedRoutes', protectedRoutes)
 		protectedRoutes = data.data
 	}
 	const isProtected = protectedRoutes.includes(pathname)
