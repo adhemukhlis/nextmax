@@ -1,14 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
+import fs from 'node:fs'
+import path from 'node:path'
 
 import { decrypt } from './utils/crypto-zero/crypto-core'
+import ensureArray from './utils/ensure-array'
+import globalStore from './utils/globalStore'
 
 const auth = async (request: NextRequest) => {
 	const pathname = request.nextUrl.pathname
-	const baseUrl = request.nextUrl.origin
-	const res = await fetch(`${baseUrl}/api/global`, { next: { revalidate: 60 } })
 
-	const data = await res.json()
-	const protectedRoutes = data.data
+	const protectedRoutes: Array<string> = ensureArray(globalStore.get('protectedRoutes'))
 	const isProtected = protectedRoutes.includes(pathname)
 	if (isProtected) {
 		const session = request.cookies.get('session')?.value
@@ -25,7 +26,41 @@ const auth = async (request: NextRequest) => {
 	return undefined
 }
 
+const findFileRecursive = (dir: string, filename: string): string[] => {
+	const results: string[] = []
+
+	function searchDirectory(currentDir: string): void {
+		const items = fs.readdirSync(currentDir)
+		items.forEach((item) => {
+			const fullPath = path.join(currentDir, item)
+			const stat = fs.statSync(fullPath)
+			if (stat.isDirectory()) {
+				searchDirectory(fullPath)
+			} else if (stat.isFile() && path.basename(fullPath) === filename) {
+				results.push(fullPath.slice(dir.length))
+			}
+		})
+	}
+
+	searchDirectory(dir)
+	return results
+}
+
+const getRoutes = async () => {
+	const targetDir = path.join(process.cwd(), 'src/app/(protected)')
+	const foundFiles = findFileRecursive(targetDir, 'page.tsx')
+	return foundFiles.map((item) => {
+		const sliced = item.split('/')
+		const result = sliced.slice(0, sliced.length - 1).join('/')
+		return result
+	})
+}
+
+const protectedRoutes = await getRoutes()
+globalStore.set('protectedRoutes', protectedRoutes)
+
 const middleware = async (request: NextRequest) => {
+
 	const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
 	const requestHeaders = new Headers(request.headers)
 
@@ -69,6 +104,7 @@ const middleware = async (request: NextRequest) => {
 export default middleware
 
 export const config = {
+	runtime: 'nodejs',
 	matcher: [
 		// API only
 		// '/api/:function*',
