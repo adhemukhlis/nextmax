@@ -56,11 +56,13 @@ const getRoutes = async () => {
 	})
 }
 
-const protectedRoutes = await getRoutes()
-globalStore.set('protectedRoutes', protectedRoutes)
+// const protectedRoutes = await getRoutes()
+// globalStore.set('protectedRoutes', protectedRoutes)
 
 const middleware = async (request: NextRequest) => {
-
+	const targetDir = path.join(process.cwd())
+	const items = fs.readdirSync(targetDir)
+	console.info('🚧', items)
 	const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
 	const requestHeaders = new Headers(request.headers)
 
