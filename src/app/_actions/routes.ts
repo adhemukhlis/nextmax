@@ -11,6 +11,7 @@ type MenuItem = {
 
 export const getRoutes = cache(async () => {
 	const targetDir = path.join(process.cwd(), 'src/app/(protected)')
+	console.info('👻', targetDir.toString())
 	const foundFiles = findFileRecursive(targetDir, 'page.tsx')
 	return foundFiles.map((item) => {
 		const sliced = item.split('/')
