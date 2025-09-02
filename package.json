@@ -3,9 +3,9 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "yarn env-cmd -x -f .env next dev --turbopack -p '$PORT'",
-		"start": "yarn env-cmd -x -f .env next start -p '$PORT'",
-		"start:turbo": "yarn env-cmd -x -f .env next start --turbopack -p '$PORT'",
+		"dev": "yarn env-cmd -x -f .env next dev --turbopack -p '${PORT}'",
+		"start": "yarn env-cmd -x -f .env next start -p '${PORT}'",
+		"start:turbo": "yarn env-cmd -x -f .env next start --turbopack -p '${PORT}'",
 		"build": "next build",
 		"build:turbo": "next build --turbopack",
 		"lint": "eslint .",
