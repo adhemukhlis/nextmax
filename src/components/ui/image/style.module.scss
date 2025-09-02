@@ -1,0 +1,21 @@
+.skeleton {
+	animation: skeleton-loading 2s ease infinite alternate;
+}
+
+@keyframes skeleton-loading {
+	0% {
+		background-color: hsl(0, 0%, 94%);
+	}
+	25% {
+		background-color: hsl(0, 0%, 94%);
+	}
+	50% {
+		background-color: hsl(0, 0%, 88%);
+	}
+	75% {
+		background-color: hsl(0, 0%, 94%);
+	}
+	100% {
+		background-color: hsl(0, 0%, 94%);
+	}
+}

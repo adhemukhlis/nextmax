@@ -3,29 +3,32 @@ import { ChangeEvent, FC, PropsWithChildren } from 'react'
 import _style from './style.module.scss'
 
 type InputProps = {
-	name: string
+	name?: string
 	label: string
 	type?: string
 	id?: string
 	minLength?: number
 	onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
-const Input: FC<PropsWithChildren<InputProps>> = ({ name, label, type = 'text', id, minLength, onChange, ...other }) => {
+
+const Input: FC<PropsWithChildren<InputProps>> = ({ name, label, type = 'text', minLength, onChange, id, ...other }) => {
+	const inputId = id || name
+
 	return (
 		<div className={_style['input-container']}>
 			<input
 				{...other}
-				id={id}
+				id={inputId}
 				type={type}
 				placeholder=" "
-				// name={name}
 				minLength={minLength}
 				required
 				onChange={onChange}
 				suppressHydrationWarning
 			/>
-			<label htmlFor={name}>{label}</label>
+			<label htmlFor={inputId}>{label}</label>
 		</div>
 	)
 }
+
 export default Input
