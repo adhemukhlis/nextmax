@@ -28,6 +28,15 @@ const nextConfig: NextConfig = {
 	experimental: {
 		serverSourceMaps: false
 		// turbopackTreeShaking: true
+	},
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'api.dicebear.com'
+			}
+		],
+		dangerouslyAllowSVG: true
 	}
 }
 
