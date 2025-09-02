@@ -1,4 +1,3 @@
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Rubik } from 'next/font/google'
 import { headers } from 'next/headers'
 import { FC, PropsWithChildren } from 'react'
@@ -37,7 +36,6 @@ const RootLayout: FC<PropsWithChildren> = async ({ children }) => {
 			nonce={nonce}>
 			<body className={`${nextFont.variable}`}>
 				{children}
-				<SpeedInsights />
 				<RootLayoutClient buildId={GIT_SHORT_COMMIT_SHA} />
 			</body>
 		</html>
