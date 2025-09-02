@@ -204,7 +204,7 @@ form {
 }
 
 .flip {
-	transform: rotate(180deg);
+	transform: rotate(180deg) !important;
 }
 
 /* Background blur when modal is open */
