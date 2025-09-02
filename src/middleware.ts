@@ -18,6 +18,8 @@ const auth = async (request: NextRequest) => {
 		globalStore.set('protectedRoutes', protectedRoutes)
 		protectedRoutes = data.data
 	}
+	console.warn('😈')
+	console.error({ protectedRoutes })
 	const isProtected = protectedRoutes.includes(pathname)
 	if (isProtected) {
 		const session = request.cookies.get('session')?.value
