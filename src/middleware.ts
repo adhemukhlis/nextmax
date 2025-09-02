@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 import { decrypt } from './utils/crypto-zero/crypto-core'
+import ensureArray from './utils/ensure-array'
 import globalStore from './utils/globalStore'
 
 const auth = async (request: NextRequest) => {
@@ -8,7 +9,7 @@ const auth = async (request: NextRequest) => {
 
 	let protectedRoutes = undefined
 
-	const isProtectedRoutesInitiated = globalStore.has('protectedRoutes')
+	const isProtectedRoutesInitiated = globalStore.has('protectedRoutes') && ensureArray(globalStore.get('protectedRoutes')).length > 0
 	if (isProtectedRoutesInitiated) {
 		protectedRoutes = globalStore.get('protectedRoutes')
 	} else {
