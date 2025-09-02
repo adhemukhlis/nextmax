@@ -1,4 +1,7 @@
 import { FC, PropsWithChildren } from 'react'
+
+import _style from './style.module.scss'
+
 type ButtonProps = {
 	htmlType?: 'submit' | 'reset' | 'button' | undefined
 	variant?: 'solid' | 'outline' | 'filled' | 'text'
@@ -9,7 +12,7 @@ const Button: FC<PropsWithChildren<ButtonProps>> = ({ children, variant, htmlTyp
 		<button
 			{...(!!htmlType ? { type: htmlType } : {})}
 			{...other}
-			className={`button${variant === 'solid' ? ' solid' : variant === 'outline' ? ' outline' : variant === 'filled' ? ' filled' : ''}`}>
+			className={`${_style['button']} ${variant !== undefined ? _style[variant] : ''}`}>
 			{children}
 		</button>
 	)

@@ -1,7 +1,12 @@
 import Link from 'next/link'
 import { FC, PropsWithChildren } from 'react'
+
+import _style from './style.module.scss'
+
+import type { Route } from 'next'
+
 type ButtonLinkProps = {
-	to?: string
+	to?: Route
 	flip?: boolean
 	onClick?: () => void
 }
@@ -12,7 +17,7 @@ const ButtonLink: FC<PropsWithChildren<ButtonLinkProps>> = ({ children, to = '#'
 			href={to}
 			prefetch={true}
 			draggable={false}
-			className={['button-link', ...(flip ? ['flip'] : [])].join(' ')}>
+			className={[_style['button-link'], ...(flip ? ['flip'] : [])].join(' ')}>
 			{children}
 		</Link>
 	)
