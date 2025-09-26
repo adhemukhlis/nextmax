@@ -42,11 +42,3 @@
 		color: #fff;
 	}
 }
-
-.button-link {
-	@extend .button;
-	text-decoration: none;
-	display: flex;
-	justify-content: center;
-	gap: 0.4rem;
-}
