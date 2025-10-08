@@ -40,7 +40,7 @@
 		"globals": "^16.4.0",
 		"prettier": "^3.6.2",
 		"sass": "^1.92.1",
-		"typescript": "^5.9.2",
+		"typescript": "^5.9.3",
 		"yarn-upgrade-all": "^0.7.5"
 	},
 	"yarn-upgrade-all": {
