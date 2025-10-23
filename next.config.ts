@@ -6,6 +6,11 @@ const nextConfig: NextConfig = {
 			exclude: ['error', 'warn', 'info', 'table']
 		}
 	},
+	cacheComponents: true,
+	i18n: {
+		defaultLocale: 'en',
+		locales: ['en', 'en-US', 'id-ID']
+	},
 	httpAgentOptions: {
 		keepAlive: false
 	},
@@ -26,7 +31,7 @@ const nextConfig: NextConfig = {
 	},
 	trailingSlash: false,
 	turbopack: {
-		resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json', '.scss']
+		resolveExtensions: ['.tsx', '.ts', '.mjs', '.json', '.scss']
 	},
 	typedRoutes: true,
 	experimental: {
