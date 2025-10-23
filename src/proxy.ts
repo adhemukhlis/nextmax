@@ -37,7 +37,7 @@ const auth = async (request: NextRequest) => {
 	return undefined
 }
 
-const middleware = async (request: NextRequest) => {
+export const proxy = async (request: NextRequest) => {
 	const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
 	const requestHeaders = new Headers(request.headers)
 
@@ -78,10 +78,7 @@ const middleware = async (request: NextRequest) => {
 	return nextResponse
 }
 
-export default middleware
-
 export const config = {
-	runtime: 'nodejs',
 	matcher: [
 		// API only
 		// '/api/:function*',

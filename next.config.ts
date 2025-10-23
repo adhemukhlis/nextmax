@@ -6,14 +6,19 @@ const nextConfig: NextConfig = {
 			exclude: ['error', 'warn', 'info', 'table']
 		}
 	},
+	httpAgentOptions: {
+		keepAlive: false
+	},
+	pageExtensions: ['ts', 'tsx'],
 
 	poweredByHeader: false,
 	typescript: {
 		ignoreBuildErrors: true
 	},
-	eslint: {
-		ignoreDuringBuilds: true
-	},
+	// <+> DEPRECATED
+	// eslint: {
+	// 	ignoreDuringBuilds: true
+	// },
 	reactStrictMode: false, // I prefer to set to false to prevent double rendering.
 	productionBrowserSourceMaps: false,
 	outputFileTracingIncludes: {
@@ -24,7 +29,6 @@ const nextConfig: NextConfig = {
 		resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json', '.scss']
 	},
 	typedRoutes: true,
-	qualities: [20, 40, 60, 80, 100],
 	experimental: {
 		serverSourceMaps: false
 		// turbopackTreeShaking: true
