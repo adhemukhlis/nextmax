@@ -38,7 +38,7 @@
 		"eslint-plugin-react": "^7.37.5",
 		"eslint-plugin-react-hooks": "^7.0.1",
 		"globals": "^16.5.0",
-		"prettier": "^3.6.2",
+		"prettier": "^3.7.4",
 		"sass": "^1.93.3",
 		"typescript": "^5.9.3",
 		"yarn-upgrade-all": "^0.7.5"
