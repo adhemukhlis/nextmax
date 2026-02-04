@@ -1,5 +1,4 @@
 import { Rubik } from 'next/font/google'
-import { headers } from 'next/headers'
 import { FC, PropsWithChildren } from 'react'
 
 import RootLayoutClient from '@/components/client/layout'
@@ -26,14 +25,11 @@ export const viewport: Viewport = {
 	themeColor: '#FAFAFA'
 }
 
-const RootLayout: FC<PropsWithChildren> = async ({ children }) => {
-	const headersList = await headers()
-	const nonce = headersList.get('x-nonce') || ''
+const RootLayout: FC<PropsWithChildren> = ({ children }) => {
 	const GIT_SHORT_COMMIT_SHA = String(process.env.VERCEL_GIT_COMMIT_SHA ?? '').slice(0, 7)
 	return (
 		<html
-			lang="en"
-			nonce={nonce}>
+			lang="en">
 			<body className={`${nextFont.variable}`}>
 				{children}
 				<RootLayoutClient buildId={GIT_SHORT_COMMIT_SHA} />
