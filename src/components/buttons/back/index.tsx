@@ -1,3 +1,4 @@
+import { Route } from 'next'
 import { FC, PropsWithChildren } from 'react'
 
 import ButtonLink from '@/components/ui/button-link'
@@ -9,7 +10,7 @@ const ButtonBack: FC<PropsWithChildren<ButtonBackProps>> = ({ navigateTo, label 
 	return (
 		<div className="d-flex align-center gap-1">
 			<ButtonLink
-				to={navigateTo}
+				to={navigateTo as Route}
 				flip>
 				➜
 			</ButtonLink>

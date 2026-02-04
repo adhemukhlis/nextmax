@@ -1,8 +1,10 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { decrypt } from 'atlibx/crypto'
+import { NextResponse } from 'next/server'
 
-import { decrypt } from './utils/crypto-zero/crypto-core'
 import ensureArray from './utils/ensure-array'
 import globalStore from './utils/globalStore'
+
+import type { NextRequest } from 'next/server'
 
 const auth = async (request: NextRequest) => {
 	const pathname = request.nextUrl.pathname

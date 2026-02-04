@@ -1,9 +1,8 @@
 // the maximum number of characters that can be stored in a cookie => 4096 - cookie_name.length
 
 'use server'
+import { decrypt, encrypt } from 'atlibx/crypto'
 import { cookies } from 'next/headers'
-
-import { decrypt, encrypt } from '@/utils/crypto-zero/crypto-core'
 
 export const setCookie = async (cookie_name: string, duration: number, cookie_value: any) => {
 	const cookieStore = await cookies()

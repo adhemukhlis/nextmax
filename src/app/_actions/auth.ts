@@ -1,14 +1,14 @@
 'use server'
+import { steganoDecodeFromZeroWidthCharacter } from 'atlibx/crypto'
 import { redirect } from 'next/navigation'
 
 import { destroySession, setSession } from './session'
-import { decodeFromZeroWidthCharactersText } from '@/utils/crypto-zero/stegano-core'
 type User = {
 	email: string
 	password: string
 }
 export const login = async (payload: string) => {
-	const values = decodeFromZeroWidthCharactersText(payload, '')
+	const values = steganoDecodeFromZeroWidthCharacter(payload, '')
 
 	const body: User = JSON.parse(values)
 

@@ -3,49 +3,51 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "yarn env-cmd -x -f .env next dev --turbopack -p \\${PORT}",
-		"start": "yarn env-cmd -x -f .env next start -p \\${PORT}",
-		"start:turbo": "yarn env-cmd -x -f .env next start --turbopack -p \\${PORT}",
+		"dev": "env-cmd -x -f .env next dev -p \\${PORT}",
+		"start": "env-cmd -x -f .env next start -p \\${PORT}",
 		"build": "next build",
-		"build:turbo": "next build --turbopack",
 		"lint": "eslint .",
 		"typecheck": "tsc --noEmit",
 		"fix": "eslint --fix .",
-		"format": "yarn prettier --config .prettierrc --write ./src",
-		"dependencies-upgrade": "yarn yarn-upgrade-all",
-		"install:prod": "yarn install --production",
-		"env-cmd-test": "yarn env-cmd -x -f .env echo \\${PORT}"
+		"format": "prettier --config .prettierrc --write ./src",
+		"dependencies-upgrade": "pnpm up --latest",
+		"install:prod": "pnpm install --production"
 	},
 	"dependencies": {
+		"atlibx": "^1.5.1",
 		"dayjs": "^1.11.19",
 		"env-cmd": "^11.0.0",
-		"next": "^16.1.5",
-		"react": "^19.2.0",
-		"react-dom": "^19.2.0"
+		"next": "^16.1.6",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4"
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.3.3",
-		"@eslint/js": "^9.39.1",
-		"@types/node": "^25.0.3",
-		"@types/react": "^19.2.2",
+		"@eslint/js": "^9.39.2",
+		"@next/eslint-plugin-next": "^16.1.6",
+		"@types/node": "^25.2.0",
+		"@types/react": "^19.2.10",
 		"@types/react-dom": "^19.2.3",
-		"@typescript-eslint/eslint-plugin": "^8.46.2",
-		"@typescript-eslint/parser": "^8.51.0",
+		"@typescript-eslint/eslint-plugin": "^8.54.0",
+		"@typescript-eslint/parser": "^8.54.0",
 		"eslint": "^9.39.2",
-		"eslint-config-next": "^16.1.1",
+		"eslint-config-next": "^16.1.6",
 		"eslint-plugin-import": "^2.32.0",
 		"eslint-plugin-next": "^0.0.0",
 		"eslint-plugin-react": "^7.37.5",
 		"eslint-plugin-react-hooks": "^7.0.1",
-		"globals": "^17.0.0",
-		"prettier": "^3.7.4",
-		"sass": "^1.97.1",
-		"typescript": "^5.9.3",
-		"yarn-upgrade-all": "^0.7.5"
+		"globals": "^17.3.0",
+		"sass": "^1.97.3",
+		"typescript": "^5.9.3"
 	},
-	"yarn-upgrade-all": {
-		"ignore": [
-			"sass"
-		]
-	}
+	"engines": {
+		"node": ">=22.0.0"
+	},
+	"packageManager": "pnpm@10.28.0",
+	"browserslist": [
+		"chrome 111",
+		"edge 111",
+		"firefox 111",
+		"safari 16.4"
+	]
 }
