@@ -7,10 +7,6 @@ const nextConfig: NextConfig = {
 		}
 	},
 	cacheComponents: true,
-	i18n: {
-		defaultLocale: 'en',
-		locales: ['en', 'en-US', 'id-ID']
-	},
 	httpAgentOptions: {
 		keepAlive: false
 	},
@@ -30,14 +26,7 @@ const nextConfig: NextConfig = {
 		'/': ['./src/**/*'] // keep src directory include production
 	},
 	trailingSlash: false,
-	turbopack: {
-		resolveExtensions: ['.tsx', '.ts', '.mjs', '.json', '.scss']
-	},
-	typedRoutes: true,
-	experimental: {
-		serverSourceMaps: false
-		// turbopackTreeShaking: true
-	},
+
 	images: {
 		remotePatterns: [
 			{

@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react'
+import { FC, PropsWithChildren, useId } from 'react'
 
 import _style from './style.module.scss'
 import { Options } from './type'
@@ -9,7 +9,7 @@ type AutoCompleteProps = {
 	options: Options
 }
 const AutoComplete: FC<PropsWithChildren<AutoCompleteProps>> = ({ label, name, options }) => {
-	const ts = String(Date.now() + Math.random() * 1000)
+	const ts = useId()
 	return (
 		<div className={_style['input-container']}>
 			<input
