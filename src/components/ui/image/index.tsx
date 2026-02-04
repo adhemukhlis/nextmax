@@ -12,13 +12,16 @@ type ImageProps = {
 
 const ImageBasic: FC<ImageProps> = ({ src, borderRadius = '0' }) => {
 	const [mounted, setMounted] = useState(false)
-	const parentRef = useRef(null)
+	const parentRef = useRef<HTMLDivElement>(null)
 	useEffect(() => {
 		setMounted(true)
 	}, [])
 	const handleRemoveSkeleton = () => {
-		if (SKELETON_COMPONENT_ID in parentRef.current.children) {
-			parentRef.current.removeChild(parentRef.current.children[SKELETON_COMPONENT_ID])
+		if (parentRef.current) {
+			const skeleton = parentRef.current.querySelector(`#${SKELETON_COMPONENT_ID}`)
+			if (skeleton) {
+				parentRef.current.removeChild(skeleton)
+			}
 		}
 	}
 	return (

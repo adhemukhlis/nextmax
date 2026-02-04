@@ -8,7 +8,7 @@ import Form from '@/components/ui/form'
 import FormItem from '@/components/ui/form/item'
 import { required } from '@/components/ui/form/rules'
 import Input from '@/components/ui/input'
-import { encodeToZeroWidthCharactersText } from '@/utils/crypto-zero/stegano-core'
+import { steganoEncodeToZeroWidthCharacter } from 'atlibx/crypto'
 
 type Props = {
 	data: {
@@ -25,7 +25,7 @@ const FormClient: FC<Props> = ({ data }) => {
 	const handleSubmit = (values: FormValuesType) => {
 		const { email, password } = values
 		const payloadStringify = JSON.stringify({ email, password })
-		const payload = encodeToZeroWidthCharactersText(payloadStringify, '')
+		const payload = steganoEncodeToZeroWidthCharacter(payloadStringify, '')
 		startTransition(() => {
 			login(payload)
 		})
