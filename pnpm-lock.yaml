@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       atlibx:
-        specifier: ^1.5.1
-        version: 1.5.1
+        specifier: ^1.6.2
+        version: 1.6.2
       dayjs:
         specifier: ^1.11.19
         version: 1.11.19
@@ -40,11 +40,11 @@ importers:
         specifier: ^25.2.3
         version: 25.2.3
       '@types/react':
-        specifier: ^19.2.10
-        version: 19.2.10
+        specifier: ^19.2.14
+        version: 19.2.14
       '@types/react-dom':
         specifier: ^19.2.3
-        version: 19.2.3(@types/react@19.2.10)
+        version: 19.2.3(@types/react@19.2.14)
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.54.0
         version: 8.54.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3)
@@ -550,8 +550,8 @@ packages:
     peerDependencies:
       '@types/react': ^19.2.0
 
-  '@types/react@19.2.10':
-    resolution: {integrity: sha512-WPigyYuGhgZ/cTPRXB2EwUw+XvsRA3GqHlsP4qteqrnnjDrApbS7MxcGr/hke5iUoeB7E/gQtrs9I37zAJ0Vjw==}
+  '@types/react@19.2.14':
+    resolution: {integrity: sha512-ilcTH/UniCkMdtexkoCN0bI7pMcJDvmQFPvuPvmEaYA/NSfFTAgdUSLAoVjaRJm7+6PvcM+q1zYOwS4wTYMF9w==}
 
   '@typescript-eslint/eslint-plugin@8.54.0':
     resolution: {integrity: sha512-hAAP5io/7csFStuOmR782YmTthKBJ9ND3WVL60hcOjvtGFb+HJxH4O5huAcmcZ9v9G8P+JETiZ/G1B8MALnWZQ==}
@@ -770,8 +770,8 @@ packages:
     resolution: {integrity: sha512-hsU18Ae8CDTR6Kgu9DYf0EbCr/a5iGL0rytQDobUcdpYOKokk8LEjVphnXkDkgpi0wYVsqrXuP0bZxJaTqdgoA==}
     engines: {node: '>= 0.4'}
 
-  atlibx@1.5.1:
-    resolution: {integrity: sha512-XqE9Mc4pg2Qpv9xujgDPH0OZhvzQ3KtuaMPrIMkYP0+aukJiVwr0jViNoqENqoeyPSeJ0MQMu8Y6iSDgF/uDOA==}
+  atlibx@1.6.2:
+    resolution: {integrity: sha512-rr9o0xa5dVLv75xlOL6VjYvtMCz69DU0Hl6EENuWx5xXdN8gmN8UYTbLDXt0jbLF40hE1zWB4kTKWrxnpxawyg==}
     engines: {node: '>=22'}
 
   available-typed-arrays@1.0.7:
@@ -2310,11 +2310,11 @@ snapshots:
     dependencies:
       undici-types: 7.16.0
 
-  '@types/react-dom@19.2.3(@types/react@19.2.10)':
+  '@types/react-dom@19.2.3(@types/react@19.2.14)':
     dependencies:
-      '@types/react': 19.2.10
+      '@types/react': 19.2.14
 
-  '@types/react@19.2.10':
+  '@types/react@19.2.14':
     dependencies:
       csstype: 3.2.3
 
@@ -2560,7 +2560,7 @@ snapshots:
 
   async-function@1.0.0: {}
 
-  atlibx@1.5.1: {}
+  atlibx@1.6.2: {}
 
   available-typed-arrays@1.0.7:
     dependencies:
